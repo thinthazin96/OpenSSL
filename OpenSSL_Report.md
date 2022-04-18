@@ -1,1 +1,1 @@
-<h1> Open SSL Report <h1>
+<h1 align=center> Open SSL Report <h1>
