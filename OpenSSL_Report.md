@@ -9,9 +9,9 @@
 
 ## 1. OpenSSL installion <a name="installation"></a>
 
-## 2. [Performance of OpenSSL] <a name="performance"></a>
+## 2. Performance of OpenSSL <a name="performance"></a>
  
-## 3. [Using OpenSSL from commandline interface]<a name="cmd"></a>
+## 3. Using OpenSSL from commandline interface<a name="cmd"></a>
  
-## 4. [Exchange of encrypted data]<a name="exchange"></a>
+## 4. Exchange of encrypted data <a name="exchange"></a>
   
