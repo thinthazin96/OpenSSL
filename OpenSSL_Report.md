@@ -1,4 +1,4 @@
-<h1 align=center> Open SSL Report <h1>
+<h1 align=center> OpenSSL Report <h1>
   
 # Table of contents
   
@@ -8,12 +8,15 @@
 4. [Exchange of encrypted data](#exchanged)
 
 ## 1. OpenSSL installation <a name="installation"></a>
+  ![Task 1](Task1-a,b.jpg)
+  
   <p> In this project, I used Linux system Ubuntu flavor to test encryption and decryption.</p>
-    <p>a. Start the OpenSSL command line
+
+   <p>a. Start the OpenSSL command line
       <ul>
          <li><i>openssl version</i> = to check whether the openssl is installed on my system or not.</li>
       </ul>
-    </p>
+   </p>
 
    <p>b. List commands by type 
       <ul>
@@ -22,6 +25,8 @@
         <li><i>openssl list -digest -commands</i> = shows a list of available digest algorithms to process the message.</li>
       </ul>
     </p>
+    
+  ![Task 1](Task1-c.jpg)
 
    <p> c. Use the help to find out more about OpenSSL
       <ul>
