@@ -35,6 +35,18 @@
    </p>
    
 ## 2. Performance of OpenSSL <a name="performance"></a>
+  ![Task 2](Task2.jpg)
+  
+  ![Task 2-a](Task2-a.jpg)
+  
+  <p>a. Make a speed test on your PC-platform with the speed command. </p>
+  <p>The output of the speed command line means run the md4 hash routine in a loop for 3 seconds with a 16-byte input. After 3 seconds, observe that we ran just a bit over 17 million iterations. That's about 51 million bytes processed. This shows the speed of RSA 2048bits encryption per second and decryption per second on my PC.</p>
+  
+  ![Task 2-b](Task2-b.jpg)
+  
+  <p>b. Compare the results for symmetric encryption (e.g., AES-CBC) and RSA signature.</p>
+  <p> This shows the speed of AES 256 bits in CBC mode. As we know, AES is a symmetric block cipher which is faster and RSA is an asymmetric cryptosystem. That’s why RSA is a bit slower than AES.
+  </p>
  
 ## 3. Using OpenSSL from commandline interface<a name="cmd"></a>
  
