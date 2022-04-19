@@ -56,14 +56,14 @@
  <p> i. AES-128 CBC
   <p>First I created a message in nano pad to encrypt and decrypt.</p>
     <ul>
-      <li>nano msg = to open the nano pad to write message</li>
-      <li>cat msg = display the content of msg file</li>
+      <li><i>nano msg</i> = to open the nano pad to write message</li>
+      <li><i>cat msg</i> = display the content of msg file</li>
     </ul>
       
 Then set the password for AES encryption and the same password will be used for decryption.
     <ul>
-      <li>openssl enc -aes-128-cbc -in msg = encrypt the message using 256 bit AES encryption and CBC mode and define the input file which is msg</li>
-      <li>openssl enc -aes-128-cbc -in msg -out enc = The ciphertext was generated and store the output file called enc</li>
+      <li><i>openssl enc -aes-128-cbc -in msg</i> = encrypt the message using 256 bit AES encryption and CBC mode and define the input file which is msg</li>
+      <li><i>openssl enc -aes-128-cbc -in msg -out enc</i> = The ciphertext was generated and store the output file called enc</li>
     </ul>
  </p>
  
@@ -82,7 +82,7 @@ AES and DES is a symmetric block cipher which means it uses the same key to encr
 ![Task 3](Task-3b.jpg)
 
 <ul>
-  <li>Openssl genrsa -out keypair.pem 2048 = generate private and public key which is 2048 bit long by using RSA and store the keys in keypair.pem</li>
+  <li><i>Openssl genrsa -out keypair.pem 2048</i> = generate private and public key which is 2048 bit long by using RSA and store the keys in keypair.pem</li>
 </ul>
 
 ![Task 3](Task-3b1.jpg)
@@ -99,20 +99,20 @@ In this task, I am going to decrypt my neighbor's secret message using the RSA a
 First open two windows of the linux terminal and create folder Neighbor on one terminal and folder Thin on the other one. Then, change the directory to the designated folder. Then, both users generate public and private key.
 
 <ul>
-  <li>Openssl genrsa -out keypairN.pem 2048 = generate private and public key which is 2048 bit long by using RSA and store the keys in keypairN.pem</li>
+  <li><i>Openssl genrsa -out keypairN.pem 2048</i> = generate private and public key which is 2048 bit long by using RSA and store the keys in keypairN.pem</li>
 </ul>
 
 Public key has to be stored in a separate file and shared with others, so that he/she can encrypt the message using the public key. 
 
 <ul>
-  <li>Openssl rsa -in keypairN.pem -pubout -out publicN.pem = operate RSA and store only public key from keypairN.pem to publicN.pem</li>
+  <li><i>Openssl rsa -in keypairN.pem -pubout -out publicN.pem</i> = operate RSA and store only public key from keypairN.pem to publicN.pem</li>
 </ul>
 
 ### b. Exchange the file and the necessary credentials for decryption (i.e., algorithm, key) with your neighbor 
 Since both neighbors and I  have our own private and public keys, we are going to exchange our  public keys.
 
 <ul>
-  <li>Ln -s /root/Thin/publickeyT.pem = Neighbor link the source of publickeyT.pem file of Thin</li>
+  <li><i>Ln -s /root/Thin/publickeyT.pem</i> = Neighbor link the source of publickeyT.pem file of Thin</li>
 </ul>
 
 ![Task 3](Task-4b.jpg)
@@ -120,19 +120,19 @@ Since both neighbors and I  have our own private and public keys, we are going t
 Neighbor created a secret message, “I don’t know how to bake cookies” and stored it in a secret file. In an asymmetric algorithm, not only encryption and decryption but also need to sign and verify signatures in files. Since it is not a good practice to sign the message using a private key directly, encrypt the private key with password and sign the message using that private key. 
 
 <ul>
-  <li>Openssl rsa -in keypairN.pem -des3 -out privatekeyN.pem = Neighbor separate the private key from keypairN.pem and store it in privatekeyN.pem using RSA DES3 encryption.</li>
-  <li>Openssl rsautl -sign -in secret -out signed -inkey privatekeyN.pem =  neighbor sign the secret message using privatekeyN.pem and stored in a singed file.</li>
+  <li><i>Openssl rsa -in keypairN.pem -des3 -out privatekeyN.pem</i> = Neighbor separate the private key from keypairN.pem and store it in privatekeyN.pem using RSA DES3 encryption.</li>
+  <li><i>Openssl rsautl -sign -in secret -out signed -inkey privatekeyN.pem</i> =  neighbor sign the secret message using privatekeyN.pem and stored in a singed file.</li>
   
   ![Task 3](Task-3b1.jpg)
   
-  <li>cp /root/Neighbor/signed signed = copy signed from Neighbor and store in another file called signed.</li>
+  <li><i>cp /root/Neighbor/signed signed</i> = copy signed from Neighbor and store in another file called signed.</li>
 </ul>
 
 ### c. Decrypt the secret of your neighbor. 
 Now I am going to decrypt my neighbor's secret. First, I am going to verify whether the signed file belongs to my neighbor using the public he gave me.
 
 <ul>
-  <li>Openssl rsautl -verify -in signed -out singedFile -inkey publickeyN.pe -pubin = verify the signed file using publickeyN.pem and stored in signedFile </li>
+  <li><i>Openssl rsautl -verify -in signed -out singedFile -inkey publickeyN.pe -pubin</i> = verify the signed file using publickeyN.pem and stored in signedFile </li>
 </ul>
 
 Once it was verified, I got my neighbor's secret “I don’t know how to bake cookies”. 
