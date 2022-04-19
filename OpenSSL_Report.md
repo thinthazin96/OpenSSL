@@ -12,47 +12,48 @@
   
   <p> In this project, I used Linux system Ubuntu flavor to test encryption and decryption.</p>
 
-   <p>a. Start the OpenSSL command line
-      <ul>
-         <li><i>openssl version</i> = to check whether the openssl is installed on my system or not.</li>
-      </ul>
-   </p>
+  ### a. Start the OpenSSL command line
+  
+  <ul>
+    <li><i>openssl version</i> = to check whether the openssl is installed on my system or not.</li>
+  </ul>
+  
 
-   <p>b. List commands by type 
-      <ul>
-        <li><i>openssl list -command</i> = shows the list of commands</li>
-        <li><i>openssl list -cipher-commands</i> = to see the list of built-in cipher algorithm commands with different modes and bits to encrypt and decrypt data.</li>
-        <li><i>openssl list -digest -commands</i> = shows a list of available digest algorithms to process the message.</li>
-      </ul>
-    </p>
+  ### b. List commands by type 
+   <ul>
+     <li><i>openssl list -command</i> = shows the list of commands</li>
+     <li><i>openssl list -cipher-commands</i> = to see the list of built-in cipher algorithm commands with different modes and bits to encrypt and decrypt data.</li>
+     <li><i>openssl list -digest -commands</i> = shows a list of available digest algorithms to process the message.</li>
+  </ul>
+    
     
   ![Task 1](Task1-c.jpg)
 
-   <p> c. Use the help to find out more about OpenSSL
-      <ul>
-        <li><i>openssl help</i> = command shows the help menus.</li>
-      </ul>
-   </p>
+   ### c. Use the help to find out more about OpenSSL
+   <ul>
+     <li><i>openssl help</i> = command shows the help menus.</li>
+   </ul>
+   
    
 ## 2. Performance of OpenSSL <a name="performance"></a>
   ![Task 2](Task2.jpg)
   
   ![Task 2-a](Task2-a.jpg)
   
-  <p>a. Make a speed test on your PC-platform with the speed command. </p>
+  ### a. Make a speed test on the PC-platform with the speed command. 
   <p>The output of the speed command line means run the md4 hash routine in a loop for 3 seconds with a 16-byte input. After 3 seconds, observe that we ran just a bit over 17 million iterations. That's about 51 million bytes processed. This shows the speed of RSA 2048bits encryption per second and decryption per second on my PC.</p>
   
   ![Task 2-b](Task2-b.jpg)
   
-  <p>b. Compare the results for symmetric encryption, AES-CBC, and RSA signature.</p>
+  ### b. Compare the results for symmetric encryption, AES-CBC, and RSA signature.
   <p> This shows the speed of AES 256 bits in CBC mode. As we know, AES is a symmetric block cipher which is faster and RSA is an asymmetric cryptosystem. That’s why RSA is a bit slower than AES.
   </p>
  
 ## 3. Using OpenSSL from commandline interface<a name="cmd"></a>
 ![Task 3](Task3.jpg)
 
- <p>a. Create a text file with some input and encrypt it using. </p>
- <p> I. AES-128 CBC
+ ### a. Create a text file with some input and encrypt it using. 
+ <p> i. AES-128 CBC
   <p>First I created a message in nano pad to encrypt and decrypt.</p>
     <ul>
       <li>nano msg = to open the nano pad to write message</li>
@@ -66,17 +67,17 @@ Then set the password for AES encryption and the same password will be used for 
     </ul>
  </p>
  
- <p> II. AES-256 CTR </p>
+ <p> ii. AES-256 CTR </p>
  
  ![Task 3](Task3-ii.jpg)
  
- <p> III. DES </p>
+ <p> iii. DES </p>
  
  ![Task 3](Task3-iii.jpg)
  
 AES and DES is a symmetric block cipher which means it uses the same key to encrypt and decrypt data as we did above. In the next task, we are going to use the RSA algorithm to do encryption and decryption.
 
-B. creating a 2048 bit RSA public and private key
+### b. creating a 2048 bit RSA public and private key
 
 ![Task 3](Task-3b.jpg)
 
@@ -89,7 +90,7 @@ B. creating a 2048 bit RSA public and private key
 Then, we separate the public key from the keypair.pem and store it in publickey.pem.This public key has to be sent to the other user to encrypt the message.
 
 ## 4. Exchange of encrypted data <a name="exchanged"></a>
-<p> a. Encrypt a file (e.g., a text file) with an algorithm and a key length of your choice. </p>
+### a. Encrypt a file (e.g., a text file) with an algorithm and a key length of your choice.
 
 ![Task 3](Task-4a.jpg)
 
@@ -107,7 +108,7 @@ Public key has to be stored in a separate file and shared with others, so that h
   <li>Openssl rsa -in keypairN.pem -pubout -out publicN.pem = operate RSA and store only public key from keypairN.pem to publicN.pem</li>
 </ul>
 
-<p> b. Exchange the file and the necessary credentials for decryption (i.e., algorithm, key) with your neighbor </p>
+### b. Exchange the file and the necessary credentials for decryption (i.e., algorithm, key) with your neighbor 
 Since both neighbors and I  have our own private and public keys, we are going to exchange our  public keys.
 
 <ul>
@@ -127,7 +128,7 @@ Neighbor created a secret message, “I don’t know how to bake cookies” and 
   <li>cp /root/Neighbor/signed signed = copy signed from Neighbor and store in another file called signed.</li>
 </ul>
 
-<p> c. Decrypt the secret of your neighbor. </p>
+### c. Decrypt the secret of your neighbor. 
 Now I am going to decrypt my neighbor's secret. First, I am going to verify whether the signed file belongs to my neighbor using the public he gave me.
 
 <ul>
